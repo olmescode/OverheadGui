@@ -1,5 +1,5 @@
 ## OverheadGui
-The OverheadGUI system is a Roblox Module for creating overhead GUI elements above each player's character in-game. The GUI includes the player's username and display name, a VIP icon to players who own a specific game pass and can also include a special animation for players who are in the top 10 of a specific data store.
+The OverheadGUI system is a Roblox Module for creating overhead GUI elements above each player's character in-game. The GUI includes the player's username and display name, a VIP icon for players who own a specific game pass, and can also include a special animation for players who are in the top 10 of a specific data store.
 
 ### Features
 * Automatically clones the overhead GUI for each player who joins the game
