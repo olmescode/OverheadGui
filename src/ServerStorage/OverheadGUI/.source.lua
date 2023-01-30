@@ -1,24 +1,17 @@
 print("Required OverheadGUI")
 local Players = game:GetService("Players")
-local MarketplaceService = game:GetService("MarketplaceService")
+local RunService = game:GetService("RunService")
 
-local createOverheadGUI = require(script.Api.createOverheadGUI)
+local onPlayerAdded = require(script.Components.onPlayerAdded)
+local configure = require(script.Components.configure)
+local addconfiguration = require(script.Api.addConfiguration)
 
-local OverheadGUI = {}
+local OverheadGUI = {
+	-- Server APIs
+	onPlayerAdded = onPlayerAdded(),
+	addConfiguration = addconfiguration(configure)
+}
 
-local function onCharacterAdded(character)
-	local player = Players:GetPlayerFromCharacter(character)
-	local Humanoid = character.Humanoid
-	
-	Humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-	
-	if player then
-		createOverheadGUI(player)
-	end
-end
-
-function OverheadGUI.onPlayerAdded(player)
-	player.CharacterAdded:Connect(onCharacterAdded)
-end
+assert(RunService:IsServer(), "OverheadGUI must be called on server")
 
 return OverheadGUI
